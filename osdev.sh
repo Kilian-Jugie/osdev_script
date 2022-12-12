@@ -358,7 +358,7 @@ build_qemu() {
 }
 
 # ENTRY
-# set -x # for debug purposes
+set -x # for debug purposes
 OLD_PATH="$PATH"
 echo "Select a directory or enter a new one: "
 ls -d */
@@ -455,9 +455,9 @@ rebuild_target() {
     echo "Select target to modify"
     select GNU_TARGET in "${SUPPORTED_TARGETS[@]}"; do
     if [ $REPLY -le 0 ] || [ $REPLY -gt ${#SUPPORTED_TARGETS[@]} ]; then
-      echo "Incorrect target id";
+      echo "Incorrect target id"
     else
-      return 1
+      break
     fi
   done
   fi
@@ -505,9 +505,9 @@ create_target() {
     echo "Creating a new target. Select target: "
     select GNU_TARGET in "${SUPPORTED_TARGETS[@]}"; do
       if [ $REPLY -le 0 ] || [ $REPLY -gt ${#SUPPORTED_TARGETS[@]} ]; then
-        echo "Incorrect target id";
+        echo "Incorrect target id"
       else
-        return 1
+        break
       fi
     done
   fi
