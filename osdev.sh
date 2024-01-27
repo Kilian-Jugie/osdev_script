@@ -358,10 +358,10 @@ build_qemu() {
 }
 
 # ENTRY
-set -x # for debug purposes
+# set -x # for debug purposes
 OLD_PATH="$PATH"
 echo "Select a directory or enter a new one: "
-ls -d */
+ls -d */ 2> /dev/null
 read in_dir
 DEV_DIR=$PWD/$in_dir
 
